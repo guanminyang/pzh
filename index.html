@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 关旻旸的网站|快捷社区</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --text-color: #34495e;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', '微软雅黑', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* 新版头部 */
+        header {
+            background: rgba(44, 62, 80, 0.95);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 2px;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* 小说版块 */
+        .novel-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .novel-section:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 章节导航 */
+        .chapter-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .chapter-link {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .chapter-link:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+
+        /* 小说内容 */
+        .novel-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            padding: 1.5rem 0;
+        }
+
+        .novel-content h3 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        /* 推文版块 */
+        .tweet-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 推文表单 */
+        .tweet-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 120px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .tweet-form textarea:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+
+        .tweet-form button {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .tweet-form button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* 推荐链接 */
+        .recommendations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .site-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .site-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .site-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .site-card img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .novel-section, .tweet-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* 加载动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .novel-section, .tweet-section {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>快捷方式</h1>
+</header>
+
+
+        <div class="recommendations">
+            <div class="site-card">
+                <a href="https://www.qidian.com" target="_blank">
+                    <img src="https://.../qidian-logo.png" alt="起点中文网">
+                    <div>
+                        <h4>起点中文网</h4>
+                        <p>热门原创文学平台</p>
+                    </div>
+                </a>
+            </div>
+<!-- 在原有推荐网站卡片后添加以下内容 -->
+<div class="site-card">
+    <a href="https://www.baidu.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://www.baidu.com/favicon.ico" alt="百度">
+        <div>
+            <h4>百度</h4>
+            <p>中文搜索引擎</p>
+        </div>
+    </a>
+</div>
+
+<div class="site-card">
+    <a href="https://www.fanqienovel.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://sf6-ttcdn-tos.pstatp.com/obj/cmp-commercial-fe-video/admin/static/fq_logo.png" alt="番茄小说">
+        <div>
+            <h4>番茄免费小说</h4>
+            <p>正版免费小说阅读平台</p>
+        </div>
+    </a>
+</div>
+
+<div class="site-card">
+    <a href="https://www.douyin.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://lf1-cdn-tos.bytescm.com/obj/static/douyin_web/static/favicon.ico" alt="抖音">
+        <div>
+            <h4>抖音</h4>
+            <p>记录美好生活</p>
+        </div>
+    </a>
+</div>
+
+<div class="site-card">
+    <a href="https://y.qq.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://y.qq.com/favicon.ico" alt="QQ音乐">
+        <div>
+            <h4>QQ音乐</h4>
+            <p>千万正版音乐曲库</p>
+        </div>
+    </a>
+</div>
+
+<div class="site-card">
+    <a href="https://www.kuaishou.com" target="_blank" rel="noopener noreferrer">
+        <img src="https://www.kuaishou.com/favicon.ico" alt="快手">
+        <div>
+            <h4>快手</h4>
+            <p>拥抱每一种生活</p>
+        </div>
+    </a>
+</div>
+<div class="novel-links">
+                <h3>推荐小说网站</h3>
+                <ul class="link-list">
+                    <li><a href="https://www.zongheng.com" target="_blank" rel="noopener noreferrer">纵横中文网 - 精品小说阅读基地</a></li>
+                    <li><a href="https://www.jjwxc.net" target="_blank" rel="noopener noreferrer">晋江文学城 - 女性向小说首选</a></li>
+                    <li><a href="https://www.17k.com" target="_blank" rel="noopener noreferrer">17K小说网 - 新人作家孵化平台</a></li>
+                </ul>
+            </div>
+
+            <!-- 更多推荐网站卡片 -->
+        </div>
+    </section>
+
+    <section class="tweet-section">
+        <!-- 推文表单和列表 -->
+    </section>
+</div>
+
+</body>
+</html>
